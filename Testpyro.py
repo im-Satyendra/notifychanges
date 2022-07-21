@@ -81,8 +81,17 @@ while True:
             OldPage = PrevVersion.splitlines()
             NewPage = soup.splitlines()
             # compare versions and highlight changes using difflib
-            #d = difflib.Differ()
-            #diff = d.compare(OldPage, NewPage)
+            d = difflib.Differ()
+            diffone = d.compare(OldPage, NewPage)
+            out_textone = "\n".join([ll.rstrip() for ll in '\n'.join(diffone).splitlines() if ll.strip()])
+            with open('changesone.txt','w') as fs:
+              preoneo = (out_textone)
+              pretwoo = ('\n'.join(diff))
+              chngso = f"{preoneo}\n{pretwoo}"
+              print(chngso)
+              fs.write(str(chngs0))
+              app.send_document(-1001330957197,'changesone.txt')
+              os.remove('changesone.txt')
             diff = difflib.context_diff(OldPage,NewPage,n=10)
             out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
             with open('changes.txt','w') as f:
