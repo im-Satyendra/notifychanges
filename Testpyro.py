@@ -70,7 +70,7 @@ while True:
             OldPage = NewPage
             PrevVersion = soup
     else:
-        logging.info(-1001330957197,"No Changes "+ str(datetime.now()))
+        logging.info("No Changes "+ str(datetime.now()))
     time.sleep(5)
     continue
    except Exception as e:
