@@ -3,3 +3,4 @@ urllib3
 pyrogram
 BeautifulSoup4
 requests
+lxml
