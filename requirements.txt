@@ -1,4 +1,4 @@
-pyrogram==1.6.4
+pyrogram==1.4.16
 urllib3
 pyrogram
 BeautifulSoup4
