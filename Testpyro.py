@@ -88,7 +88,7 @@ while True:
             pretwoo = ('\n'.join(diffone))
             chngso = f"{preoneo}\n{pretwoo}"
             diff = difflib.context_diff(OldPage,NewPage,n=10)
-            out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()]
+            out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
             preone = (out_text)
             pretwo = ('\n'.join(diff))
             chngs = f"{preone}\n{pretwo}"
