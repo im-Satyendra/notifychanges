@@ -100,7 +100,7 @@ def check(url):
      continue
 async def url1():
     print("ID of process running worker1: {}".format(os.getpid()))
-    await check(urls1)
+    check(urls1)
 def url2():
     print("ID of process running worker2: {}".format(os.getpid()))
     check(urls2)
