@@ -52,7 +52,7 @@ import time
 from datetime import datetime
 
 # target URL
-urls = "https://satyendra.tech/"
+urls = ["https://testservices.nic.in","https://satyendra.tech/","https://examinationservices.nic.in","https://testservices.nic.in/ExaminationServices/","https://jeemain.nta.nic.in","https://satyendra.tech/"]
 # act like a browser
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 
@@ -92,7 +92,7 @@ while True:
             PrevVersion = soup
     else:
         logging.info(-1001330957197,"No Changes "+ str(datetime.now()),disable_notification=True)
-    time.sleep(3)
+    time.sleep(2)
     continue
    except Exception as e:
      print(e)
