@@ -92,7 +92,7 @@ def check(url):
             OldPage = NewPage
             PrevVersion = soup
     else:
-        logging.info(-1001330957197,"No Changes "+ str(datetime.now()),disable_notification=True)
+        logging.info(-1001330957197,"No Changes "+ str(datetime.now()))
     time.sleep(5)
     continue
    except Exception as e:
@@ -101,18 +101,18 @@ def check(url):
 async def url1():
     print("ID of process running worker1: {}".format(os.getpid()))
     await check(urls1)
-async def url2():
+def url2():
     print("ID of process running worker2: {}".format(os.getpid()))
-    await check(urls2)
-async def url3():
-    print("ID of process running worker2: {}".format(os.getpid()))
-    await check(urls3)
-async def url4():
-    print("ID of process running worker2: {}".format(os.getpid()))
-    await check(urls4)
-async def url5():
-    print("ID of process running worker2: {}".format(os.getpid()))
-    await check(urls5)
+    check(urls2)
+def url3():
+    print("ID of process running worker3: {}".format(os.getpid()))
+    check(urls3)
+def url4():
+    print("ID of process running worker4: {}".format(os.getpid()))
+    check(urls4)
+def url5():
+    print("ID of process running worker5: {}".format(os.getpid()))
+    check(urls5)
 if __name__ == "__main__": 
     print("ID of main process: {}".format(os.getpid())) 
     p1 = multiprocessing.Process(target=url1) 
