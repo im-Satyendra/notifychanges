@@ -86,7 +86,7 @@ while True:
             out_textone = "\n".join([ll.rstrip() for ll in '\n'.join(diffone).splitlines() if ll.strip()])
             with open('changesone.txt','w') as fs:
               preoneo = (out_textone)
-              pretwoo = ('\n'.join(diff))
+              pretwoo = ('\n'.join(diffone))
               chngso = f"{preoneo}\n{pretwoo}"
               print(chngso)
               fs.write(str(chngs0))
