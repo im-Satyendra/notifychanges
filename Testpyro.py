@@ -105,7 +105,6 @@ while True:
               except:
                 with open('changes.txt','w') as f:
                   preone = (out_text)
-                  pretwo = p2
                   chngs = f"{preone}\n{pretwo}"
                   print(chngs)
                   f.write(str(chngs))
