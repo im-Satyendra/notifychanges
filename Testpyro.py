@@ -14,6 +14,7 @@ from bs4 import BeautifulSoup
 import difflib
 import time
 from datetime import datetime
+from twilio.rest import Client as tc
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler(
@@ -32,6 +33,15 @@ app = pyrogram.Client(
 app.start()
 logging.info("Starting Assistant...")
 logging.info("𝑨𝒔𝒔𝒊𝒔𝒕𝒂𝒏𝒕 𝒉𝒂𝒔 𝒃𝒆𝒆𝒏 𝒔𝒕𝒂𝒓𝒕𝒆𝒅 𝒔𝒖𝒄𝒄𝒆𝒔𝒔𝒇𝒖𝒍𝒍𝒚")
+ttkn = "55c1ed3584092b699b91273298d5771c"
+tsid = "AC4fe36626703f97a3efd56739f305e599"
+tphno = "+19475002622"
+
+TWILIO_ACCOUNT_SID = tsid
+TWILIO_AUTH_TOKEN = ttkn 
+TWILIO_PHONE_SENDER = tphno # replace with the phone number you registered in twilio
+TWILIO_PHONE_RECIPIENT = "+918790863694" # replace with your phone number
+cli = tc(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 app.send_message(-1001330957197,"started")
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
@@ -67,6 +77,13 @@ while True:
             chngs = f"{preone}\n{pretwo}"
             app.send_message(-1001330957197,str(str(f'{chngso}').replace('*',' ').replace('-',' ').replace('_',' ')))
             app.send_message(-1001330957197,str(str(f'{chngs}').replace('*',' ').replace('-',' ').replace('_',' ')))
+            bth1 = str(str(f'{chngso}').replace('*',' ').replace('-',' ').replace('_',' '))
+            bth2 = str(str(f'{chngs}').replace('*',' ').replace('-',' ').replace('_',' '))
+            altxt = f"{bth1}\n{bth2}"
+            cli.messages.create(
+        to=TWILIO_PHONE_RECIPIENT,
+        from_=TWILIO_PHONE_SENDER,
+        body=altxt)
             OldPage = NewPage
             PrevVersion = soup
     else:
