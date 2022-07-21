@@ -92,26 +92,8 @@ while True:
             preone = (out_text)
             pretwo = ('\n'.join(diff))
             chngs = f"{preone}\n{pretwo}"
-            try:
-              try:
-                with open('changesone.txt','w') as fs:
-                  preoneo = (out_textone)
-                  pretwoo = ('\n'.join(diffone))
-                  chngso = f"{preoneo}\n{pretwoo}"
-                  print(chngso)
-                  fs.write(str(chngso))
-                  app.send_document(-1001330957197,'changesone.txt')
-                  os.remove('changesone.txt')
-              except:
-                with open('changes.txt','w') as f:
-                  preone = (out_text)
-                  chngs = f"{preone}\n{pretwo}"
-                  print(chngs)
-                  f.write(str(chngs))
-                  app.send_document(-1001330957197,'changes.txt')
-                  os.remove('changes.txt')
-            except:
-              app.send_message(-1001330957197,str(str(f'{chngs}\n{chngso}').replace('*',' ').replace('-',' ').replace('_',' ')))
+            app.send_message(-1001330957197,str(str(f'{chngso}').replace('*',' ').replace('-',' ').replace('_',' ')))
+            app.send_message(-1001330957197,str(str(f'{chngs}').replace('*',' ').replace('-',' ').replace('_',' ')))
             OldPage = NewPage
             PrevVersion = soup
     else:
