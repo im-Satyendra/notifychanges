@@ -87,7 +87,7 @@ while True:
             out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
             with open('changes.txt','w') as f:
               f.write(out_text)
-              app.send_document(-1001330957197,changes.txt)
+              app.send_document(-1001330957197,'changes.txt')
               os.remove('changes.txt')
             OldPage = NewPage
             #print ('\n'.join(diff))
