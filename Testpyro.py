@@ -85,7 +85,10 @@ while True:
             #diff = d.compare(OldPage, NewPage)
             diff = difflib.context_diff(OldPage,NewPage,n=10)
             out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
-            app.send_message(-1001330957197,out_text)
+            with open('changes.txt','w') as f:
+              f.write(out_text)
+              app.send_document(-1001330957197,changes.txt)
+              os.remove('changes.txt')
             OldPage = NewPage
             #print ('\n'.join(diff))
             PrevVersion = soup
