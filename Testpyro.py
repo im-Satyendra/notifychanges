@@ -86,19 +86,17 @@ while True:
             diff = difflib.context_diff(OldPage,NewPage,n=10)
             out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
             with open('changes.txt','w') as f:
-              f.write('hi')
-            with open('changes.txt','a') as fs:
-              print(out_text)
-              fs.write(out_text)
-              fs.write(('\n'.join(diff)))
-              print('\n'.join(diff))
+              preone = (out_text)
+              pretwo = ('\n'.join(diff))
+              chngs = f"{preone}\n{pretwo}"
+              print(chngs)
+              f.write(str(chngs))
               app.send_document(-1001330957197,'changes.txt')
               os.remove('changes.txt')
             OldPage = NewPage
-           
             PrevVersion = soup
     else:
-        print( "No Changes "+ str(datetime.now()))
+        app.send_message(-1001330957197,"No Changes "+ str(datetime.now()),disable_notification=True)
     time.sleep(10)
     continue
 idle()
