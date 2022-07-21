@@ -52,7 +52,7 @@ import time
 from datetime import datetime
 
 # target URL
-url = "https://024x.eu.org/"
+url = "https://satyendra.tech/"
 # act like a browser
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 
