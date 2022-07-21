@@ -89,7 +89,7 @@ while True:
               pretwoo = ('\n'.join(diffone))
               chngso = f"{preoneo}\n{pretwoo}"
               print(chngso)
-              fs.write(str(chngs0))
+              fs.write(str(chngso))
               app.send_document(-1001330957197,'changesone.txt')
               os.remove('changesone.txt')
             diff = difflib.context_diff(OldPage,NewPage,n=10)
