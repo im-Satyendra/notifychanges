@@ -84,24 +84,35 @@ while True:
             d = difflib.Differ()
             diffone = d.compare(OldPage, NewPage)
             out_textone = "\n".join([ll.rstrip() for ll in '\n'.join(diffone).splitlines() if ll.strip()])
-            with open('changesone.txt','w') as fs:
-              preoneo = (out_textone)
-              pretwoo = ('\n'.join(diffone))
-              chngso = f"{preoneo}\n{pretwoo}"
-              print(chngso)
-              fs.write(str(chngso))
-              app.send_document(-1001330957197,'changesone.txt')
-              os.remove('changesone.txt')
+            preoneo = (out_textone)
+            pretwoo = ('\n'.join(diffone))
+            chngso = f"{preoneo}\n{pretwoo}"
             diff = difflib.context_diff(OldPage,NewPage,n=10)
-            out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
-            with open('changes.txt','w') as f:
-              preone = (out_text)
-              pretwo = ('\n'.join(diff))
-              chngs = f"{preone}\n{pretwo}"
-              print(chngs)
-              f.write(str(chngs))
-              app.send_document(-1001330957197,'changes.txt')
-              os.remove('changes.txt')
+                out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()]
+                preone = (out_text)
+                pretwo = ('\n'.join(diff))
+                chngs = f"{preone}\n{pretwo}"
+            try:
+              try:
+                with open('changesone.txt','w') as fs:
+                  preoneo = (out_textone)
+                  pretwoo = ('\n'.join(diffone))
+                  chngso = f"{preoneo}\n{pretwoo}"
+                  print(chngso)
+                  fs.write(str(chngso))
+                  app.send_document(-1001330957197,'changesone.txt')
+                  os.remove('changesone.txt')
+              except:
+                with open('changes.txt','w') as f:
+                  preone = (out_text)
+                  pretwo = p2
+                  chngs = f"{preone}\n{pretwo}"
+                  print(chngs)
+                  f.write(str(chngs))
+                  app.send_document(-1001330957197,'changes.txt')
+                  os.remove('changes.txt')
+            except:
+              app.send_message(-1001330957197,f'{chngs}\n{chngso}')
             OldPage = NewPage
             PrevVersion = soup
     else:
