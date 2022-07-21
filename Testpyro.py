@@ -7,8 +7,6 @@ import time
 import hashlib
 from urllib.request import urlopen, Request
 from pyrogram import idle
-
-
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler(
                         'log.txt'), logging.StreamHandler()],
@@ -92,7 +90,7 @@ while True:
             PrevVersion = soup
     else:
         logging.info(-1001330957197,"No Changes "+ str(datetime.now()),disable_notification=True)
-    time.sleep(2)
+    time.sleep(200)
     continue
    except Exception as e:
      print(e)
