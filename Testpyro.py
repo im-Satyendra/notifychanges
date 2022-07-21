@@ -52,26 +52,21 @@ import time
 from datetime import datetime
 
 # target URL
-url = "https://satyendra.tech/"
+urls = "https://satyendra.tech/"
 # act like a browser
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 
 PrevVersion = ""
 FirstRun = True
 while True:
-
-    # download the page
+  for url in urls:
+   try:
     response = requests.get(url, headers=headers)
-    # parse the downloaded homepage
     soup = BeautifulSoup(response.text, "lxml")
-    
-    # remove all scripts and styles
     for script in soup(["script", "style"]):
         script.extract() 
     soup = soup.get_text()
-    # compare the page text to the previous version
     if PrevVersion != soup:
-        # on the first run - just memorize the page
         if FirstRun == True:
             PrevVersion = soup
             FirstRun = False
@@ -80,7 +75,6 @@ while True:
             app.send_message(-1001330957197,"Changes detected at: "+ str(datetime.now()))
             OldPage = PrevVersion.splitlines()
             NewPage = soup.splitlines()
-            # compare versions and highlight changes using difflib
             d = difflib.Differ()
             diffone = d.compare(OldPage, NewPage)
             out_textone = "\n".join([ll.rstrip() for ll in '\n'.join(diffone).splitlines() if ll.strip()])
@@ -97,7 +91,10 @@ while True:
             OldPage = NewPage
             PrevVersion = soup
     else:
-        app.send_message(-1001330957197,"No Changes "+ str(datetime.now()),disable_notification=True)
-    time.sleep(10)
+        logging.info(-1001330957197,"No Changes "+ str(datetime.now()),disable_notification=True)
+    time.sleep(3)
     continue
+   except Exception as e:
+     print(e)
+     continue
 idle()
