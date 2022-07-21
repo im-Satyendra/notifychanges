@@ -88,8 +88,10 @@ while True:
             with open('changes.txt','w') as f:
               f.write('hi')
             with open('changes.txt','a') as fs:
+              print(out_text)
               fs.write(out_text)
               fs.write(('\n'.join(diff)))
+              print('\n'.join(diff))
               app.send_document(-1001330957197,'changes.txt')
               os.remove('changes.txt')
             OldPage = NewPage
