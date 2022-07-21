@@ -111,7 +111,7 @@ while True:
                   app.send_document(-1001330957197,'changes.txt')
                   os.remove('changes.txt')
             except:
-              app.send_message(-1001330957197,f'{chngs}\n{chngso}')
+              app.send_message(-1001330957197,str(str(f'{chngs}\n{chngso}').replace('*',' ').replace('-',' ').replace('_',' ')))
             OldPage = NewPage
             PrevVersion = soup
     else:
