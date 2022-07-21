@@ -7,6 +7,14 @@ import time
 import hashlib
 from urllib.request import urlopen, Request
 from pyrogram import idle
+from multiprocessing import Pool
+import multiprocessing
+import requests
+from bs4 import BeautifulSoup
+import difflib
+import time
+from datetime import datetime
+
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler(
                         'log.txt'), logging.StreamHandler()],
@@ -43,21 +51,16 @@ logging.info(banner)
 logging.info("𝑨𝒔𝒔𝒊𝒔𝒕𝒂𝒏𝒕 𝒉𝒂𝒔 𝒃𝒆𝒆𝒏 𝒔𝒕𝒂𝒓𝒕𝒆𝒅 𝒔𝒖𝒄𝒄𝒆𝒔𝒔𝒇𝒖𝒍𝒍𝒚")
 
 app.send_message(-1001330957197,"started")
-import requests
-from bs4 import BeautifulSoup
-import difflib
-import time
-from datetime import datetime
-
-# target URL
-urls = ["https://testservices.nic.in","https://satyendra.tech/","https://examinationservices.nic.in","https://testservices.nic.in/ExaminationServices/","https://jeemain.nta.nic.in","https://satyendra.tech/"]
-# act like a browser
+urls1 = "https://testservices.nic.in"
+urls2= "https://examinationservices.nic.in"
+urls3 = "https://satyendra.tech/"
+urls4 = "https://testservices.nic.in/ExaminationServices/"
+urls5 = "https://jeemain.nta.nic.in"
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
-
-PrevVersion = ""
-FirstRun = True
-while True:
-  for url in urls:
+def check(url):
+ PrevVersion = ""
+ FirstRun = True
+ while True:
    try:
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, "lxml")
@@ -90,9 +93,36 @@ while True:
             PrevVersion = soup
     else:
         logging.info(-1001330957197,"No Changes "+ str(datetime.now()),disable_notification=True)
-    time.sleep(200)
+    time.sleep(5)
     continue
    except Exception as e:
      print(e)
      continue
+async def url1():
+    print("ID of process running worker1: {}".format(os.getpid()))
+    await check(urls1)
+async def url2():
+    print("ID of process running worker2: {}".format(os.getpid()))
+    await check(urls2)
+async def url3():
+    print("ID of process running worker2: {}".format(os.getpid()))
+    await check(urls3)
+async def url4():
+    print("ID of process running worker2: {}".format(os.getpid()))
+    await check(urls4)
+async def url5():
+    print("ID of process running worker2: {}".format(os.getpid()))
+    await check(urls5)
+if __name__ == "__main__": 
+    print("ID of main process: {}".format(os.getpid())) 
+    p1 = multiprocessing.Process(target=url1) 
+    p2 = multiprocessing.Process(target=url2)
+    p3 = multiprocessing.Process(target=url3)
+    p4 = multiprocessing.Process(target=url4)
+    p5 = multiprocessing.Process(target=url5)
+    p1.start() 
+    p2.start()
+    p3.start()
+    p4.start()
+    p5.start()
 idle()
