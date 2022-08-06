@@ -62,28 +62,6 @@ while True:
             app.send_message(-1001330957197,"Start Monitoring "+url+ ""+ str(datetime.now()),disable_notification=True)
         else:
             app.send_message(-1001330957197,"Changes detected at: "+ str(datetime.now()))
-            OldPage = PrevVersion.splitlines()
-            NewPage = soup.splitlines()
-            d = difflib.Differ()
-            diffone = d.compare(OldPage, NewPage)
-            out_textone = "\n".join([ll.rstrip() for ll in '\n'.join(diffone).splitlines() if ll.strip()])
-            preoneo = (out_textone)
-            pretwoo = ('\n'.join(diffone))
-            chngso = f"{preoneo}\n{pretwoo}"
-            diff = difflib.context_diff(OldPage,NewPage,n=10)
-            out_text = "\n".join([ll.rstrip() for ll in '\n'.join(diff).splitlines() if ll.strip()])
-            preone = (out_text)
-            pretwo = ('\n'.join(diff))
-            chngs = f"{preone}\n{pretwo}"
-            app.send_message(-1001330957197,str(str(f'{chngso}').replace('*',' ').replace('-',' ').replace('_',' ')))
-            app.send_message(-1001330957197,str(str(f'{chngs}').replace('*',' ').replace('-',' ').replace('_',' ')))
-            bth1 = str(str(f'{chngso}').replace('*',' ').replace('-',' ').replace('_',' '))
-            bth2 = str(str(f'{chngs}').replace('*',' ').replace('-',' ').replace('_',' '))
-            altxt = f"{bth1}\n{bth2}"
-            cli.messages.create(
-        to=TWILIO_PHONE_RECIPIENT,
-        from_=TWILIO_PHONE_SENDER,
-        body=altxt)
             OldPage = NewPage
             PrevVersion = soup
     else:
