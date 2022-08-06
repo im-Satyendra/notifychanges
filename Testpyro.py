@@ -40,7 +40,7 @@ PrevVersion = ""
 FirstRun = True
 while True:
    try:
-    url = "https://jeemain.nta.nic.in"
+    url = "https://jeeadv.ac.in/"
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, "lxml")
     for script in soup(["script", "style"]):
@@ -53,6 +53,7 @@ while True:
             app.send_message(-1001579836800,"Start Monitoring "+url+ ""+ str(datetime.now()),disable_notification=True)
         else:
             app.send_message(-1001579836800,"Changes detected at: "+ str(datetime.now()))
+            exit()
             OldPage = NewPage
             PrevVersion = soup
     else:
