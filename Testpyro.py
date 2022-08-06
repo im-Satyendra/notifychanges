@@ -33,17 +33,8 @@ app = pyrogram.Client(
 app.start()
 logging.info("Starting Assistant...")
 logging.info("𝑨𝒔𝒔𝒊𝒔𝒕𝒂𝒏𝒕 𝒉𝒂𝒔 𝒃𝒆𝒆𝒏 𝒔𝒕𝒂𝒓𝒕𝒆𝒅 𝒔𝒖𝒄𝒄𝒆𝒔𝒔𝒇𝒖𝒍𝒍𝒚")
-ttkn = "55c1ed3584092b699b91273298d5771c"
-tsid = "AC4fe36626703f97a3efd56739f305e599"
-tphno = "+19475002622"
 
-TWILIO_ACCOUNT_SID = tsid
-TWILIO_AUTH_TOKEN = ttkn 
-TWILIO_PHONE_SENDER = tphno # replace with the phone number you registered in twilio
-TWILIO_PHONE_RECIPIENT = "+918790863694" # replace with your phone number
-cli = tc(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
-
-app.send_message(-1001330957197,"started")
+app.send_message(-1001579836800,"started")
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 PrevVersion = ""
 FirstRun = True
@@ -59,9 +50,9 @@ while True:
         if FirstRun == True:
             PrevVersion = soup
             FirstRun = False
-            app.send_message(-1001330957197,"Start Monitoring "+url+ ""+ str(datetime.now()),disable_notification=True)
+            app.send_message(-1001579836800,"Start Monitoring "+url+ ""+ str(datetime.now()),disable_notification=True)
         else:
-            app.send_message(-1001330957197,"Changes detected at: "+ str(datetime.now()))
+            app.send_message(-1001579836800,"Changes detected at: "+ str(datetime.now()))
             OldPage = NewPage
             PrevVersion = soup
     else:
