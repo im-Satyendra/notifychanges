@@ -26,7 +26,7 @@ logging.getLogger("pyrogram").setLevel(logging.ERROR)
 
 app = pyrogram.Client(
         "Notify me",
-        bot_token="5539979950:AAFNPzxDIBUdtdGjBCRzUbbgd0O5JkDL5cU",
+        bot_token="1963945108:AAFyo9bg2k4BImXsAHgghYg2bEkkdaiDe4g",
         api_id=1612723,
         api_hash="eb3bc0998f7a134318a6d5763e9d0d49",
     )
