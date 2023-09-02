@@ -26,21 +26,21 @@ logging.getLogger("pyrogram").setLevel(logging.ERROR)
 
 app = pyrogram.Client(
         "Notify me",
-        bot_token="5539979950:AAFNPzxDIBUdtdGjBCRzUbbgd0O5JkDL5cU",
+        bot_token=":",
         api_id=1612723,
-        api_hash="eb3bc0998f7a134318a6d5763e9d0d49",
+        api_hash="",
     )
 app.start()
 logging.info("Starting Assistant...")
 logging.info("𝑨𝒔𝒔𝒊𝒔𝒕𝒂𝒏𝒕 𝒉𝒂𝒔 𝒃𝒆𝒆𝒏 𝒔𝒕𝒂𝒓𝒕𝒆𝒅 𝒔𝒖𝒄𝒄𝒆𝒔𝒔𝒇𝒖𝒍𝒍𝒚")
-ttkn = "55c1ed3584092b699b91273298d5771c"
-tsid = "AC4fe36626703f97a3efd56739f305e599"
-tphno = "+19475002622"
+ttkn = ""
+tsid = ""
+tphno = "+"
 
 TWILIO_ACCOUNT_SID = tsid
 TWILIO_AUTH_TOKEN = ttkn 
 TWILIO_PHONE_SENDER = tphno # replace with the phone number you registered in twilio
-TWILIO_PHONE_RECIPIENT = "+918790863694" # replace with your phone number
+TWILIO_PHONE_RECIPIENT = "+" # replace with your phone number
 cli = tc(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
 app.send_message(-1001330957197,"started")
